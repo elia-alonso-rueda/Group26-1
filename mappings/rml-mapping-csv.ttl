@@ -89,7 +89,6 @@
     rml:referenceFormulation ql:CSV 
   ];
 
- 
   rr:subjectMap [
     rr:template "http://www.group26.org/AP/Measurement/{EOI_Code}-{Pollutant_Code}-{Date}";
     rr:termType rr:IRI; rr:class ex:Measurement
@@ -116,6 +115,31 @@
     rr:predicate ex:inDate ;
     rr:objectMap [
       rml:reference "Date";  rr:datatype <http://www.w3.org/2001/XMLSchema#dateTime>
+    ]
+  ];
+
+  #measuredPollutant
+  rr:predicateObjectMap [
+    rr:predicate ex:measuredPollutant ;
+    rr:objectMap [
+      rml:reference "Pollutant_Code";  rr:datatype <http://www.w3.org/2001/XMLSchema#integer>
+    ]
+  ]; 
+  
+  #pollutantName
+  rr:predicateObjectMap [
+    rr:predicate ex:pollutantName;
+    rr:objectMap [
+      rml:reference "Pollutant_Name";  rr:tempType rr:Literal
+    ]
+  ];
+
+   #same_as_wikidata_pollutant_name
+  rr:predicateObjectMap [
+    rr:predicate  owl:sameAs;
+    rr:objectMap [
+      rml:reference "same_as_wikidata_pollutant_name";
+      rr:tempType rr:IRI
     ]
   ].    
 
@@ -180,30 +204,7 @@
     rr:objectMap [
       rml:reference "INE_Code";  rr:tempType rr:Literal
     ]
-  ];
+  ].
   
 
-  #measuredPollutant
-  rr:predicateObjectMap [
-    rr:predicate ex:measuredPollutant ;
-    rr:objectMap [
-      rml:reference "Pollutant_Code";  rr:datatype <http://www.w3.org/2001/XMLSchema#integer>
-    ]
-  ]; 
-  
-  #pollutantName
-  rr:predicateObjectMap [
-    rr:predicate ex:pollutantName;
-    rr:objectMap [
-      rml:reference "Pollutant_Name";  rr:tempType rr:Literal
-    ]
-  ];
-
-   #same_as_wikidata_pollutant_name
-  rr:predicateObjectMap [
-    rr:predicate  owl:sameAs;
-    rr:objectMap [
-      rml:reference "same_as_wikidata_pollutant_name";
-      rr:tempType rr:IRI
-    ]
-  ].       
+   
